@@ -267,8 +267,7 @@ var commands =
       description: "NSFW! Pulls a random image form www.gelbooru.com",
       process: function(bot, msg, suffix)
       {
-        suffixIsANumber = isNaN(suffix);
-        if (suffixIsANumber)
+        if (isNaN(suffix))
         {
           bot.sendMessage(msg.channel, "usage: !gelbooru <number>");
           return;
@@ -290,8 +289,7 @@ var commands =
       description: "Pulls an XKCD comic of the number specified. If no number is specified, a random comic is chosen.",
       process: function(bot, msg, suffix)
       {
-        suffixIsANumber = isNaN(suffix);
-        if (suffixIsANumber)
+        if (isNaN(suffix))
         {
           bot.sendMessage(msg.channel, "usage: !xkcd <number>");
           return;
