@@ -200,8 +200,7 @@ var commands =
       description: "Rolls a 6 sided dice. Can also choose to roll multiple dice with a number following the command.",
       process: function(bot, msg, suffix)
       {
-        var suffixIsANumber = isNaN(suffix);
-        if (suffixIsANumber)
+        if (isNaN(suffix))
         {
           bot.sendMessage(msg.channel, "usage: !d6 <number>");
           return;
