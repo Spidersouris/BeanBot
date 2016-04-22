@@ -546,7 +546,7 @@ bot.on("message", function(msg)
   {
     var now = getDateTime();
     console.log(now + " : parsing " + msg.content + " from " + msg.sender.name + " as a command");
-      var cmdTxt = msg.content.split(" ")[0].substring(1);
+    var cmdTxt = msg.content.split(" ")[0].substring(1);
     var suffix = msg.content.substring(cmdTxt.length+2); //add one for the ! and another for the space
 
     var cmd = commands[cmdTxt];
@@ -559,24 +559,24 @@ bot.on("message", function(msg)
         bot.sendMessage(msg.channel, "!help takes no arguments.");
       }
       bot.sendMessage(msg.author, "Available Commands:", function()
-    {
-      var info = "";
-      for(var cmd in commands)
       {
-        info += "!" + cmd;
-        var usage = commands[cmd].usage;
-        if(usage)
+        var info = "";
+        for(var cmd in commands)
         {
-          info += " " + usage;
+          info += "!" + cmd;
+          var usage = commands[cmd].usage;
+          if(usage)
+          {
+            info += " " + usage;
+          }
+          var description = commands[cmd].description;
+          if(description)
+          {
+            info += "\n\t" + description + "\n\n";
+          }
         }
-        var description = commands[cmd].description;
-        if(description)
-        {
-          info += "\n\t" + description + "\n\n";
-        }
-      }
-      bot.sendMessage(msg.author, "```" + info + "```")
-    });
+        bot.sendMessage(msg.author, "```" + info + "```")
+      });
     }
     else if(cmd)
     {
