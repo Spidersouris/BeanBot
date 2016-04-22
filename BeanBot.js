@@ -24,7 +24,7 @@ try
 }
 catch(e)
 {
-  console.log("auth.json was not found, eixting program.");
+  console.log("auth.json was not found, exiting program.");
   process.exit();
 }
 
