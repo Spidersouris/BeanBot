@@ -504,6 +504,18 @@ var commands =
         var choice = suffix.split(';');
         bot.sendMessage(msg.channel, choice[Math.floor(Math.random()*choice.length)]);
       }
+    },
+    "source":
+    {
+      description: "links to github for the bot's sourcecode.",
+      process: function(bot, msg, suffix)
+      {
+        bot.sendMessage(msg.channel, "Sourcecode: https://github.com/beanoman4/BeanBot");
+        if (suffix)
+        {
+          bot.sendMessage(msg.channel, "!source takes no arguments.");
+        }
+      }
     }
 }
 
