@@ -513,6 +513,27 @@ var commands =
           bot.sendMessage(msg.channel, "!source takes no arguments.");
         }
       }
+    },
+    "triggered":
+    {
+      description: "TRIGGER WARNINGS PLEASE!",
+      process: function(bot, msg, suffix)
+      {
+        fs.readFile("triggered.txt", "UTF8", function(err, data)
+        {
+          if (err)
+          {
+            bot.sendMessage(msg.channel, "triggered.txt not found. Notify beano that he has misplaced a file.");
+            return;
+          }
+          var lines = data.split('\n');
+          bot.sendMessage(msg.channel, lines[Math.floor(Math.random()*lines.length)]);
+          if(suffix)
+          {
+            bot.sendMessage(msg.channel, "!triggered takes no arguments.");
+          }
+        });
+      }
     }
 }
 
