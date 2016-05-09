@@ -1,4 +1,4 @@
-try
+1try
 {
   var Discord = require("discord.js");
 }
@@ -577,7 +577,7 @@ var commands =
               returnInfo += "timezone: GMT " + result.location.timezone + "\n";
             }
             returnInfo += "Observation time: " + result.current.observationtime + "\n";
-            returnInfo += "Obeservation location: " + result.current.observationpoint + "\n\n";
+            returnInfo += "Observation location: " + result.current.observationpoint + "\n\n";
             returnInfo += "Temprature: " + result.current.temperature + "°C\n\n";
             returnInfo += result.current.skytext + "\n\n";
             returnInfo += "Humidity: " + result.current.humidity + "\n";
