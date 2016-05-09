@@ -566,7 +566,7 @@ var commands =
               return;
             }
             result = result[0];
-            returnInfo += "Weather information for location: " + result.location.name + "\n";
+            returnInfo += "Weather information for location: " + result.location.name + "\n\n";
             returnInfo += "```";
             if (result.location.timezone > 0)
             {
