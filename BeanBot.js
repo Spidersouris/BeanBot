@@ -56,6 +56,15 @@ catch(e)
   console.log("wikijs was not found. !wiki will not be useable.");
 }
 
+try
+{
+  var Weather = require("weather-js");
+}
+catch(e)
+{
+  console.log("weather-js was not found. !weather will not be useable.");
+}
+
 var startTime = Date.now();
 var rouletteResult = 0;
 rouletteResult = Math.floor(Math.random() * 6) + 1;
@@ -533,6 +542,47 @@ var commands =
             bot.sendMessage(msg.channel, "!triggered takes no arguments.");
           }
         });
+      }
+    },
+    "weather":
+    {
+      usage: "!weather <location>",
+      description: "Displays weather information for the described area.",
+      process: function(bot, msg, suffix)
+      {
+        var returnInfo = "";
+        if (!suffix)
+        {
+          bot.sendMessage(msg.channel, "usage: !weather <location>");
+          return;
+        }
+        try
+        {
+          Weather.find({search: suffix, degreeType: 'C'}, function(err, result)
+          {
+            if(err)
+            {
+              bot.sendMessage(msg.channel, "unable to handle your search term: " + suffix);
+              return;
+            }
+            result = result[0];
+            returnInfo += "Weather information for location: " + result.location.name + "\n";
+            returnInfo += "```";
+            returnInfo += "Observation time: " + result.current.observationtime + "\n";
+            returnInfo += "Obeservation location: " + result.current.observationpoint + "\n\n";
+            returnInfo += "Temprature: " + result.current.temperature + "°C\n\n";
+            returnInfo += result.current.skytext + "\n\n";
+            returnInfo += "Humidity: " + result.current.humidity + "\n";
+            returnInfo += "Wind: " + result.current.winddisplay + "\n"
+            returnInfo += "```";
+            //console.log(result.location.name);
+            bot.sendMessage(msg.channel, returnInfo);
+          });
+        }
+        catch(e)
+        {
+          bot.sendMessage(msg.channel, "Unable to handle search term: " + suffix);
+        }
       }
     }
 }
