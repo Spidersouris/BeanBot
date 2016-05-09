@@ -583,7 +583,6 @@ var commands =
             returnInfo += "Humidity: " + result.current.humidity + "\n";
             returnInfo += "Wind: " + result.current.winddisplay + "\n"
             returnInfo += "```";
-            //console.log(result.location.name);
             bot.sendMessage(msg.channel, returnInfo);
           });
         }
