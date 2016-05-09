@@ -1,4 +1,4 @@
-1try
+try
 {
   var Discord = require("discord.js");
 }
