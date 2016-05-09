@@ -568,6 +568,14 @@ var commands =
             result = result[0];
             returnInfo += "Weather information for location: " + result.location.name + "\n";
             returnInfo += "```";
+            if (result.location.timezone > 0)
+            {
+              returnInfo += "timezone: GMT +" + result.location.timezone + "\n";
+            }
+            else
+            {
+              returnInfo += "timezone: GMT " + result.location.timezone + "\n";
+            }
             returnInfo += "Observation time: " + result.current.observationtime + "\n";
             returnInfo += "Obeservation location: " + result.current.observationpoint + "\n\n";
             returnInfo += "Temprature: " + result.current.temperature + "°C\n\n";
