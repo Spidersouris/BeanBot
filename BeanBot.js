@@ -578,7 +578,7 @@ var commands =
             }
             returnInfo += "Observation time: " + result.current.observationtime + "\n";
             returnInfo += "Observation location: " + result.current.observationpoint + "\n\n";
-            returnInfo += "Temprature: " + result.current.temperature + "°C\n\n";
+            returnInfo += "Temperature: " + result.current.temperature + "°C\n\n";
             returnInfo += result.current.skytext + "\n\n";
             returnInfo += "Humidity: " + result.current.humidity + "\n";
             returnInfo += "Wind: " + result.current.winddisplay + "\n"
